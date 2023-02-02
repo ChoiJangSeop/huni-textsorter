@@ -1,15 +1,12 @@
 <template>
-  <HelloWorld />
+  <PrePage />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import PrePage from './components/PrePage.vue';
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  }
+  components: { PrePage },
 }
 </script>
 
