@@ -42,7 +42,7 @@
           let datas = this.bindInputData(inputData);
           console.log(datas);
         
-          this.outputData += "";
+          this.outputData = "";
           this.outputData += this.colMetaData + '\n';
           datas.forEach(_data => {
             this.outputData += _data + '\n';
@@ -99,6 +99,8 @@
             });
 
             result_str += "1";
+            result_str = result_str.replaceAll('\n', '');
+            result_str = result_str.replaceAll('\r', '');
             datas.push(result_str);
           
         });
