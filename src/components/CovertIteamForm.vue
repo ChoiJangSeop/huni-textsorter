@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h3>아이텝 지급 파일 변환기 사용법</h3>
+      <h3>아이템 지급 파일 변환기 사용법</h3>
       <ul id="menual">
         <li>파일선택을 통해 정렬할 파일을 선택</li>
         <li><button>변환</button>을 클릭하여 정렬!</li>
@@ -80,8 +80,10 @@
         splitted.forEach(row => {
             const splitted_row = row.split(',');
             let result_str = "";
+            let len = splitted_row.length;
 
             splitted_row.forEach((col, index) => {
+                
                 if (col === "true") col = "1";
                 if (col === "false") col = "0";
 
@@ -93,7 +95,7 @@
                     result_str += col + ',';
                 } else if (index === 23) {
                     result_str += "NO_DESC" + ',';
-                } else {
+                } else if (index >= len-3) {
                     result_str += col + ',';
                 }
             });
@@ -115,7 +117,7 @@
   <style scoped>
   
   #menual {
-    background-color: azure;
+    background-color: cadetblue;
     border: 1px solid black;
     height: 70px;
     width: 400px;
