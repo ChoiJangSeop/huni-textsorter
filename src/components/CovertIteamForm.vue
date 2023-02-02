@@ -92,6 +92,8 @@
             let endIdx = currIdx;
             let beginIdx = 11;
 
+            console.log(beginIdx + "~" + endIdx);
+
             if (beginIdx === endIdx) {
               itemName = splitted_row[beginIdx].substr(1,splitted_row[beginIdx].length-2);
             } else {
@@ -102,7 +104,9 @@
               itemName += splitted_row[i];
             }
 
-            itemName += splitted_row[endIdx].substr(0, splitted_row[endIdx].length-1);
+            if (beginIdx !== endIdx) {
+              itemName += splitted_row[endIdx].substr(0, splitted_row[endIdx].length-1);
+            }
           
             for (i=beginIdx+1; i<=endIdx; ++i) {
               splitted_row.splice(i, 1);
@@ -110,6 +114,7 @@
 
             splitted_row[beginIdx] = itemName;
 
+            console.log(splitted_row);
 
 
             splitted_row.forEach((col, index) => {
