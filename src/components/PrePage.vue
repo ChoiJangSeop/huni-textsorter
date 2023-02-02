@@ -1,7 +1,8 @@
 <script>
 import HelloWorld from './HelloWorld.vue';
+import ConvertIteamForm from './CovertIteamForm.vue';
 export default {
-    components: { HelloWorld },
+    components: { HelloWorld, ConvertIteamForm },
     data() {
         return {
             inputPassword: "",
@@ -9,11 +10,9 @@ export default {
             isLogin: false,
         }
     },
-
     mounted() {
         this.isLogin = false;
     },
-
     methods: {
         enter() {
             if (this.inputPassword === this.password) this.isLogin = true;
@@ -34,7 +33,6 @@ export default {
     </div>
     <div v-else>
         <HelloWorld/>
+        <ConvertIteamForm/>
     </div>
 </template>
-
-
