@@ -82,6 +82,36 @@
             let result_str = "";
             let len = splitted_row.length;
 
+            let currIdx = 11;
+            var itemName = "";
+
+            while (splitted_row[currIdx].charAt(splitted_row[currIdx].length-1) !== '"') {
+              currIdx++;
+            }
+
+            let endIdx = currIdx;
+            let beginIdx = 11;
+
+            if (beginIdx === endIdx) {
+              itemName = splitted_row[beginIdx].substr(1,splitted_row[beginIdx].length-2);
+            } else {
+              itemName = splitted_row[beginIdx].substr(1);
+            }
+
+            for (var i=beginIdx+1; i<endIdx; ++i) {
+              itemName += splitted_row[i];
+            }
+
+            itemName += splitted_row[endIdx].substr(0, splitted_row[endIdx].length-1);
+          
+            for (i=beginIdx+1; i<=endIdx; ++i) {
+              splitted_row.splice(i, 1);
+            }
+
+            splitted_row[beginIdx] = itemName;
+
+
+
             splitted_row.forEach((col, index) => {
                 
                 if (col === "true") col = "1";
@@ -90,7 +120,7 @@
                 if (index >= 0 && index <= 10) {
                     result_str += col + ',';
                 } else if (index === 11) {
-                    result_str += col.substr(1, col.length-2) + ',';
+                    result_str += col + ',';
                 } else if (index >= 12 && index <= 22) {
                     result_str += col + ',';
                 } else if (index === 23) {
