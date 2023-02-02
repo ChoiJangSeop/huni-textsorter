@@ -80,7 +80,6 @@
         splitted.forEach(row => {
             const splitted_row = row.split(',');
             let result_str = "";
-            let len = splitted_row.length;
 
             let currIdx = 11;
             var itemName = "";
@@ -115,6 +114,8 @@
             splitted_row[beginIdx] = itemName;
 
             console.log(splitted_row);
+
+            let len = splitted_row.length;
 
 
             splitted_row.forEach((col, index) => {
