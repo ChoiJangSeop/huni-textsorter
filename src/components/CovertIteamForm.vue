@@ -42,6 +42,7 @@
           let datas = this.bindInputData(inputData);
           console.log(datas);
         
+          this.outputData += "";
           this.outputData += this.colMetaData + '\n';
           datas.forEach(_data => {
             this.outputData += _data + '\n';
