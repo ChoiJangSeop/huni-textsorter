@@ -1,58 +1,124 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <p>
-      For a guide and recipes on how to configure / customize this project,<br>
-      check out the
-      <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
-    </p>
-    <h3>Installed CLI Plugins</h3>
-    <ul>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-babel" target="_blank" rel="noopener">babel</a></li>
-      <li><a href="https://github.com/vuejs/vue-cli/tree/dev/packages/%40vue/cli-plugin-eslint" target="_blank" rel="noopener">eslint</a></li>
+  <div>
+    <h1>훈이의 글 정렬기계 : Huni's Text Sorter</h1>
+    <h5>만든이 : 훈이를 가장 사랑하는 사람</h5>
+
+    <h3>사용법</h3>
+    <ul id="menual">
+      <li>파일선택을 통해 정렬할 파일을 선택</li>
+      <li><button>정렬</button>을 클릭하여 정렬!</li>
+      <li><button>txt파일로 다운 받기</button>를 클릭하여 다운받기</li>
     </ul>
-    <h3>Essential Links</h3>
-    <ul>
-      <li><a href="https://vuejs.org" target="_blank" rel="noopener">Core Docs</a></li>
-      <li><a href="https://forum.vuejs.org" target="_blank" rel="noopener">Forum</a></li>
-      <li><a href="https://chat.vuejs.org" target="_blank" rel="noopener">Community Chat</a></li>
-      <li><a href="https://twitter.com/vuejs" target="_blank" rel="noopener">Twitter</a></li>
-      <li><a href="https://news.vuejs.org" target="_blank" rel="noopener">News</a></li>
-    </ul>
-    <h3>Ecosystem</h3>
-    <ul>
-      <li><a href="https://router.vuejs.org" target="_blank" rel="noopener">vue-router</a></li>
-      <li><a href="https://vuex.vuejs.org" target="_blank" rel="noopener">vuex</a></li>
-      <li><a href="https://github.com/vuejs/vue-devtools#vue-devtools" target="_blank" rel="noopener">vue-devtools</a></li>
-      <li><a href="https://vue-loader.vuejs.org" target="_blank" rel="noopener">vue-loader</a></li>
-      <li><a href="https://github.com/vuejs/awesome-vue" target="_blank" rel="noopener">awesome-vue</a></li>
-    </ul>
+    <div id="main-page">
+      <input type="file" @change="handleFileChange">
+      <button @click="sort" style="margin-right: 7px;">정렬</button>
+      <button @click="downloadTxtFile">txt파일로 다운받기</button>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+
+  data() {
+    return {
+      file_name: "",
+      file: null,
+      inputData: "",
+      outputData: "",
+    }
+  },
+
+  methods: {
+
+    handleFileChange(e) {
+      let file = e.target.files[0];
+      this.file_name = file.name;
+      this.file = file;
+    },
+    sort() {
+      var fr = new FileReader();
+      fr.onload = e => {
+        let inputData = e.target.result; 
+        let datas = this.bindInputData(inputData);
+        
+        datas.sort((a,b) => { return a.priority - b.priority; });
+
+        let splitted = inputData.split('\n');
+        this.outputData = "";
+
+        this.outputData += splitted[0] + '\n';
+        this.outputData += splitted[1] + '\n';
+
+        datas.forEach(_data => {
+          this.outputData += _data.data + '\n';
+        });
+
+
+        alert("정렬이 완료되었습니다!");
+      }; 
+      
+      fr.readAsText(this.file);
+
+    },
+
+    downloadTxtFile() {
+      var blob = new Blob([this.outputData], { type: 'text/plain' });
+
+      var objURL = window.URL.createObjectURL(blob);
+      
+      if (window.__Xr_objURL_forCreatingFile__) {
+        window.URL.revokeObjectURL(window.__Xr_objURL_forCreatingFile__);
+      }
+      window.__Xr_objURL_forCreatingFile__ = objURL;
+
+      var a = document.createElement('a');
+      a.download = `${this.file_name.split('.')[0]}-sorted.txt`;
+      a.href = objURL;
+      a.click();
+
+    },
+
+    bindInputData(inputData) {
+      let datas = [];
+
+      const splitted = inputData.split('\n');
+
+      splitted.forEach((row, index) => {
+        // skip first 2 lines
+        if (index !== 0 && index !== 1) {
+          const splitted_row = row.split(',');
+          let currData = {
+            priority: parseInt(splitted_row[0]),
+            data: row,
+          };
+
+          datas.push(currData);
+        }
+      });
+
+      return datas;
+    },
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-h3 {
-  margin: 40px 0 0;
+
+#menual {
+  background-color: azure;
+  border: 1px solid black;
+  height: 70px;
+  width: 400px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
+
+#main-page {
+  margin-top: 30px;
 }
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>
