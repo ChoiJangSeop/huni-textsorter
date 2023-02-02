@@ -108,7 +108,7 @@
             }
           
             for (i=beginIdx+1; i<=endIdx; ++i) {
-              splitted_row.splice(i, 1);
+              splitted_row.splice(beginIdx+1, 1);
             }
 
             splitted_row[beginIdx] = itemName;
