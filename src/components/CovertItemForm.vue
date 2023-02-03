@@ -153,13 +153,14 @@
   <style scoped>
   
   #menual {
-    background-color: cadetblue;
-    border: 1px solid black;
+    background-color: black;
+    border: 1px solid white;
     height: 70px;
     width: 400px;
     font-weight: bold;
     margin-left: auto;
     margin-right: auto;
+    color: white;
   }
   
   #main-page {

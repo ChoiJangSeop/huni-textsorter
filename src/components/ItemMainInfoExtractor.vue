@@ -96,3 +96,22 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+  
+#menual {
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+  height: 70px;
+  width: 400px;
+  font-weight: bold;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#main-page {
+  margin-top: 30px;
+}
+
+</style>

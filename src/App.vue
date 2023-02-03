@@ -1,12 +1,12 @@
 <template>
-  <PrePage />
+  <MainPage />
 </template>
 
 <script>
-import PrePage from './components/PrePage.vue';
+import MainPage from './components/MainPage.vue';
 export default {
   name: 'App',
-  components: { PrePage },
+  components: { MainPage },
 }
 </script>
 
@@ -16,7 +16,13 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: white;
+  /* color: #2c3e50; */
+  margin-top: 0px;
+}
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #000000;
 }
 </style>

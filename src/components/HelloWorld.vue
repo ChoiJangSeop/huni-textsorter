@@ -1,9 +1,5 @@
 <template>
   <div>
-    <h1>훈이의 글 정렬기계 : Huni's Text Sorter</h1>
-    <h5>v1.1.0</h5>
-    <h5>만든이 : 훈이를 가장 사랑하는 사람</h5>
-
     <h3>아이템 순서 정렬기 사용법</h3>
     <ul id="menual">
       <li>파일선택을 통해 정렬할 파일을 선택</li>
@@ -109,8 +105,9 @@ export default {
 <style scoped>
 
 #menual {
-  background-color: azure;
-  border: 1px solid black;
+  background-color: black;
+  border: 1px solid white;
+  color: white;
   height: 70px;
   width: 400px;
   font-weight: bold;
