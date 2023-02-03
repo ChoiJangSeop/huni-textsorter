@@ -1,8 +1,9 @@
 <script>
 import HelloWorld from './HelloWorld.vue';
-import ConvertIteamForm from './CovertIteamForm.vue';
+import ConvertItemForm from './CovertItemForm.vue';
+import ItemMainInfoExtractor from './ItemMainInfoExtractor.vue';
 export default {
-    components: { HelloWorld, ConvertIteamForm },
+    components: { HelloWorld, ConvertItemForm, ItemMainInfoExtractor },
     data() {
         return {
             inputPassword: "",
@@ -33,6 +34,7 @@ export default {
     </div>
     <div v-else>
         <HelloWorld/>
-        <ConvertIteamForm/>
+        <ConvertItemForm/>
+        <ItemMainInfoExtractor/>
     </div>
 </template>

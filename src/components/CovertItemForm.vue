@@ -2,8 +2,8 @@
     <div>
       <h3>아이템 지급 파일 변환기 사용법</h3>
       <ul id="menual">
-        <li>파일선택을 통해 정렬할 파일을 선택</li>
-        <li><button>변환</button>을 클릭하여 정렬!</li>
+        <li>파일선택을 통해 변환할 파일을 선택</li>
+        <li><button>변환</button>을 클릭하여 변환!</li>
         <li><button>txt파일로 다운 받기</button>를 클릭하여 다운받기</li>
       </ul>
       <div id="main-page">
