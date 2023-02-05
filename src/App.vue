@@ -23,6 +23,9 @@ export default {
 body {
   margin: 0;
   height: 100vh;
-  background-color: #000000;
+  background-image: url('../src/assets/KakaoTalk_Photo_2023-02-05-19-22-20.png');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
 }
 </style>
