@@ -39,7 +39,7 @@ export default {
     </div>
     <div v-else>
         <h1>엔조이런너 운영자 귀여운 훈이의 텍스트 편집기</h1>
-        <h5>v2.0.0</h5>
+        <h5>v2.1.0</h5>
         <h5>만든이 : HUNI LOVER SEOP</h5>
         <div id="buttonList">
             <button style="margin-right: 10px;" @click="changeType(1)">아이템 순서 정렬</button>
