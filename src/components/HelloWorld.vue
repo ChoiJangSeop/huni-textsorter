@@ -11,6 +11,10 @@
       <button @click="sort" style="margin-right: 7px;">정렬</button>
       <button @click="downloadTxtFile">txt파일로 다운받기</button>
     </div>
+    <div style="margin-top: 10px;">
+      <input type="checkbox" v-model="isConvertUTF8" id="convert-utf8">
+      <label for="convert-utf8">UTF-8로 변환하기</label>
+    </div>
   </div>
 </template>
 
@@ -24,6 +28,7 @@ export default {
       file: null,
       inputData: "",
       outputData: "",
+      isConvertUTF8: false,
     }
   },
 
@@ -52,7 +57,10 @@ export default {
           this.outputData += _data.data + '\n';
         });
 
-        this.outputData = this.strEncodeUTF16(this.outputData);
+        if (!this.isConvertUTF8) {
+          this.outputData = this.strEncodeUTF16(this.outputData);
+        }
+        
 
         alert("정렬이 완료되었습니다!");
       }; 
