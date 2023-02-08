@@ -98,7 +98,7 @@ export default {
         <div id="developer-note" class="pop_wrap" style="display:none;">
             <div class="pop_inner">
                 <h3 class="dsc" style="font-weight: bold;">개발자 노트</h3>
-                <p>v2.2.0</p>
+                <p>v2.2.1</p>
                 <p style="text-align: left;">
                     <ul>
                         <li>비밀번호 기억하기 기능 추가</li>
