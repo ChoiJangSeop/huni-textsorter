@@ -80,7 +80,7 @@ export default {
       window.__Xr_objURL_forCreatingFile__ = objURL;
 
       var a = document.createElement('a');
-      a.download = `${this.file_name.split('.')[0]}-sorted.txt`;
+      a.download = `${this.file_name.split('.')[0]}.txt`;
       a.href = objURL;
       a.click();
 
