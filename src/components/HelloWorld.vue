@@ -13,7 +13,7 @@
     </div>
     <div style="margin-top: 10px;">
       <input type="checkbox" v-model="isConvertUTF8" id="convert-utf8">
-      <label for="convert-utf8">UTF-8로 변환하기</label>
+      <label for="convert-utf8">UTF-8로 변환하기 (기본형식은 UTF-16입니다)</label>
     </div>
   </div>
 </template>
@@ -127,7 +127,7 @@ export default {
   background-color: black;
   border: 1px solid white;
   color: white;
-  height: 70px;
+  height: 90px;
   width: 400px;
   font-weight: bold;
   margin-left: auto;
