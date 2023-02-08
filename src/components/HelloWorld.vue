@@ -52,6 +52,7 @@ export default {
           this.outputData += _data.data + '\n';
         });
 
+        this.outputData = this.strEncodeUTF16(this.outputData);
 
         alert("정렬이 완료되었습니다!");
       }; 
@@ -97,6 +98,16 @@ export default {
 
       return datas;
     },
+
+    strEncodeUTF16(str) {
+      var buf = new ArrayBuffer(str.length * 2);
+      var bufView = new Uint16Array(buf);
+
+      for (var i=0, strLen=str.length; i < strLen; ++i) {
+        bufView[i] = str.charCodeAt(i);
+      }
+      return bufView;
+    }
   }
 }
 </script>
