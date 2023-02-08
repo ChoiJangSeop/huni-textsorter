@@ -83,7 +83,7 @@ export default {
     </div>
     <div v-else>
         <h1>엔조이런너 운영자 귀여운 훈이의 텍스트 편집기</h1>
-        <h5>v2.2.0</h5>
+        <h5>v2.2.1</h5>
         <h5>만든이 : HUNI LOVER SEOP</h5>
         <div id="buttonList">
             <button style="margin-right: 10px;" @click="changeType(1)">아이템 순서 정렬</button>
@@ -99,6 +99,12 @@ export default {
             <div class="pop_inner">
                 <h3 class="dsc" style="font-weight: bold;">개발자 노트</h3>
                 <p>v2.2.1</p>
+                <p style="text-align: left;">
+                    <ul>
+                        <li>아이템 순서 정렬기 다운로드 파일명 변경</li>
+                    </ul>
+                </p>
+                <p>v2.2.0</p>
                 <p style="text-align: left;">
                     <ul>
                         <li>비밀번호 기억하기 기능 추가</li>
